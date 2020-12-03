@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Books Recommender</title>
+</head>
+<body>
+ <form method="get" action={% url 'predict' %}>
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="query">Query</label>
+                    <input class="form-control" id="query" name="query" placeholder="" required>
+                </div>
+                <button type="submit" value="Submit" class="btn btn-success">Submit</button>
+            </form>
+{% if hh and results %}
+<h1>{{ hh }}</h1>
+{% for i in results %}
+<h1>{{ i }}</h1>
+    {% endfor %}
+
+{% endif %}
+</body>
+</html>
